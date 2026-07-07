@@ -45,4 +45,3 @@ ant run
 **Autor:**
 - Isaac Gomez
 
-Si quieres, puedo añadir instrucciones exactas para ejecutar la clase principal o generar un JAR ejecutable.```
