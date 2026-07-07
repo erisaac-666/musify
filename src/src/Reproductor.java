@@ -93,7 +93,7 @@ public class Reproductor extends javax.swing.JFrame {
         btnDetener.addActionListener(this::btnDetenerActionPerformed);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ahora reproduciendo...");
+        jLabel3.setText("Now Playing");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
