@@ -52,7 +52,6 @@ public class Reproductor extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,11 +84,6 @@ public class Reproductor extends javax.swing.JFrame {
         lblCancion.setText("....");
 
         ls1.setBackground(new java.awt.Color(102, 102, 102));
-        ls1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Daft Punk - Veridis Quo", "Deftones - Hole in the earth", "Enjambre - Segundo tema", "The marias - Over the Moon", "The doors - Love Street" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         ls1.addListSelectionListener(this::ls1ValueChanged);
         jScrollPane1.setViewportView(ls1);
 
@@ -151,6 +145,8 @@ public class Reproductor extends javax.swing.JFrame {
                 .addGap(99, 99, 99))
         );
 
+        jMenuBar1.setForeground(new java.awt.Color(51, 51, 51));
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("Reescanear musica");
@@ -158,9 +154,6 @@ public class Reproductor extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -316,7 +309,6 @@ private ImageIcon ajustarImagen(String ruta, javax.swing.JLabel label) {
     private javax.swing.JButton btnReproducir;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
