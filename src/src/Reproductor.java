@@ -252,7 +252,7 @@ public class Reproductor extends javax.swing.JFrame {
         try{
         List<Path> canciones = AnalizadorCanciones.buscarCanciones(directorio);
             for(Path e: canciones){
-                System.out.println(e.toString());
+                System.out.println(e.getFileName().toString());
             }
         }catch(IOException e){
             System.out.println(e.getMessage());
