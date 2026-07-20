@@ -19,6 +19,7 @@ public class Reproductor extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Reproductor.class.getName());
     Reproducer reproducer = new Reproducer();
+    private List<Path> canciones;
 
     /**
      * Creates new form Reproductor
@@ -97,7 +98,6 @@ public class Reproductor extends javax.swing.JFrame {
         btnReproducir.addActionListener(this::btnReproducirActionPerformed);
 
         btnDetener.setText("Detener");
-        btnDetener.setEnabled(false);
         btnDetener.addActionListener(this::btnDetenerActionPerformed);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,6 +195,14 @@ public class Reproductor extends javax.swing.JFrame {
 
     private void btnReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReproducirActionPerformed
         // TODO add your handling code here:
+        
+       for(Path p : canciones){
+           if(ls1.getSelectedValue().equals(p.getFileName().toString())){
+               reproducer.detener();
+               reproducer.reproducir(p);
+           }
+       }
+        /*
         btnDetener.setEnabled(true);
         if(ls1.getSelectedValue().equals("Daft Punk - Veridis Quo")){
             reproducer.detener();
@@ -238,7 +246,7 @@ public class Reproductor extends javax.swing.JFrame {
             
             
         }
-        
+        */
         
     }//GEN-LAST:event_btnReproducirActionPerformed
 
@@ -251,7 +259,7 @@ public class Reproductor extends javax.swing.JFrame {
         // TODO add your handling code here:
         Path directorio = Path.of("src","assets","wav");
         try{
-        List<Path> canciones = AnalizadorCanciones.buscarCanciones(directorio);
+         canciones = AnalizadorCanciones.buscarCanciones(directorio);
            DefaultListModel <String> ListaCanciones = new DefaultListModel();
            
         for(Path e: canciones){

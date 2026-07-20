@@ -221,7 +221,6 @@
         <Component class="javax.swing.JButton" name="btnDetener">
           <Properties>
             <Property name="text" type="java.lang.String" value="Detener"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDetenerActionPerformed"/>
