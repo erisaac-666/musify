@@ -5,6 +5,9 @@
 package src;
 
 import java.awt.Image;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -44,6 +47,10 @@ public class Reproductor extends javax.swing.JFrame {
         btnReproducir = new javax.swing.JButton();
         btnDetener = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,6 +150,19 @@ public class Reproductor extends javax.swing.JFrame {
                 .addGap(99, 99, 99))
         );
 
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Reescanear musica");
+        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,7 +173,7 @@ public class Reproductor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
         );
 
         pack();
@@ -225,6 +245,19 @@ public class Reproductor extends javax.swing.JFrame {
         // TODO add your handling code here:
         reproducer.detener();
     }//GEN-LAST:event_btnDetenerActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Path directorio = Path.of("src","assets","wav");
+        try{
+        List<Path> canciones = AnalizadorCanciones.buscarCanciones(directorio);
+            for(Path e: canciones){
+                System.out.println(e.toString());
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 private ImageIcon ajustarImagen(String ruta, javax.swing.JLabel label) {
 
     ImageIcon iconoOriginal = new ImageIcon(getClass().getResource(ruta));
@@ -268,6 +301,10 @@ private ImageIcon ajustarImagen(String ruta, javax.swing.JLabel label) {
     private javax.swing.JButton btnDetener;
     private javax.swing.JButton btnReproducir;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
