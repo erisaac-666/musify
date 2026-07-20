@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
 /**
@@ -251,9 +252,14 @@ public class Reproductor extends javax.swing.JFrame {
         Path directorio = Path.of("src","assets","wav");
         try{
         List<Path> canciones = AnalizadorCanciones.buscarCanciones(directorio);
-            for(Path e: canciones){
-                System.out.println(e.getFileName().toString());
+           DefaultListModel <String> ListaCanciones = new DefaultListModel();
+           
+        for(Path e: canciones){
+                
+                ListaCanciones.addElement(e.getFileName().toString());
             }
+        ls1.setModel(ListaCanciones);
+        
         }catch(IOException e){
             System.out.println(e.getMessage());
         }
